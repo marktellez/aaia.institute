@@ -1,5 +1,5 @@
 const navLinks = [
-  { href: '/about', name: 'About' },
+  { href: '/whitepaper', name: 'Read the whitepaper' },
 ]
 
 export default navLinks
