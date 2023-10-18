@@ -4,7 +4,7 @@
 
 ## 1. Introduction: A New Digital Workforce
 
-The rapid advancements in robotics and artificial intelligence (AI) have paved the way for a transformative shift in the world of work. Imagine a future where intelligent robots, guided by autonomous AI agents, perform tasks that were traditionally carried out by humans. This paradigm shift has the potential to revolutionize existing economic models.
+The rapid advancements in artificial intelligence (AI) have paved the way for a transformative shift in the world of work. Imagine a future where intelligent devices are guided by autonomous AI agents and perform tasks that were traditionally carried out by humans. This paradigm shift has the potential to revolutionize existing economic models.
 
 In this whitepaper, we delve deep into the concept of an "autonomous AI multi-agent framework," representing a significant evolutionary step in AI technology. The paper explores the implications of this paradigm shift on economic systems, from its exciting potential to its potential challenges.
 
