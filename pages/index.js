@@ -1,20 +1,31 @@
-import Head from 'next/head'
+import fs from 'fs'
+import path from 'path'
 
-import siteConfig from '../config/siteConfig'
+import parse from '../lib/mdx.js'
+import MdxPage from '../components/MDX'
 
-export default function Home() {
+
+export default function Page({ source, frontMatter, title }) {
   return (
-    <>
-      <div className="text-center">
-        <h1 className="text-6xl font-bold mt-24 mb-8">
-          <a className="text-blue-600" href="https://github.com/datopian/nextjs-tailwind-mdx">
-            {siteConfig.title}
-          </a>
-        </h1>
-        <h2 className="text-4xl">
-          {siteConfig.tagline}
-        </h2>
-      </div>
-    </>
+    <MdxPage source={source} frontMatter={frontMatter} />
   )
+}
+
+
+const CONTENT_PATH = path.join(process.cwd(), 'content/')
+
+export const getStaticProps = async ({ }) => {
+  const mdxPath = path.join(CONTENT_PATH, `whitepaper.mdx`)
+  const postFilePath = fs.existsSync(mdxPath) ? mdxPath : mdxPath.slice(0, -1)
+  const source = fs.readFileSync(postFilePath)
+
+  const { mdxSource, frontMatter } = await parse(source)
+
+  return {
+    props: {
+      source: mdxSource,
+      frontMatter: frontMatter,
+      title: frontMatter.title || ''
+    },
+  }
 }
