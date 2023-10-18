@@ -1,12 +1,12 @@
 const siteConfig = {
-  title: 'Autonomous AI Multi-Agent Reasearch',
-  tagline: 'Research and Development',
-  description: 'Hello ...',
-  author: 'Mark tellez',
+  title: 'Autonomous AI Multi-Agent Research',
+  tagline: 'Automating all the things for profit and fun!',
+  description: 'TellezTech Autonomous AI Multi-Agent Research - Automating all the things for profit and fun!',
+  author: 'Mark Tellez',
   // logo image
   authorLogo: '',
   // url to author
-  authorUrl: 'https://gptfor.us/',
+  authorUrl: 'https://devmentor.live/headshot.png',
   // Google analytics key e.g. G-XXXX
   analytics: '',
   // optional additional nextSeo content set on each page
