@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-import parse from '../lib/mdx.js'
-import MdxPage from '../components/MDX'
+import parse from '@/lib/mdx'
+import MdxPage from '@/components/MDX'
 
 
 export default function Page({ source, frontMatter, title }) {
@@ -12,7 +12,7 @@ export default function Page({ source, frontMatter, title }) {
 }
 
 
-const CONTENT_PATH = path.join(process.cwd(), 'content/')
+const CONTENT_PATH = path.join(process.cwd(), 'src/content/')
 
 export const getStaticProps = async ({ params }) => {
   const mdxPath = path.join(CONTENT_PATH, `${params.slug.join('/')}.mdx`)

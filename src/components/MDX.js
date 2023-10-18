@@ -1,7 +1,5 @@
 import { MDXRemote } from 'next-mdx-remote'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import Link from 'next/link'
 
 
 const components = {

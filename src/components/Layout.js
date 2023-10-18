@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 
-import siteConfig from '../config/siteConfig'
+import siteConfig from '@/config/siteConfig'
 
 export default function Layout({ children, title = '' }) {
   return (

@@ -1,18 +1,21 @@
 import fs from 'fs'
 import path from 'path'
 
-import parse from '../lib/mdx.js'
-import MdxPage from '../components/MDX'
+import parse from '@/lib/mdx'
+import MdxPage from '@/components/MDX'
+import EmailSignup from '@/components/EmailSignup'
 
 
 export default function Page({ source, frontMatter, title }) {
   return (
-    <MdxPage source={source} frontMatter={frontMatter} />
+    <div className='max-w-[640px] mx-auto relative'>
+      <EmailSignup />
+      <MdxPage source={source} frontMatter={frontMatter} />
+    </div>
   )
 }
 
-
-const CONTENT_PATH = path.join(process.cwd(), 'content/')
+const CONTENT_PATH = path.join(process.cwd(), 'src/content/')
 
 export const getStaticProps = async ({ }) => {
   const mdxPath = path.join(CONTENT_PATH, `whitepaper.mdx`)
