@@ -18,7 +18,7 @@ export default function Page({ source, frontMatter, title }) {
 const CONTENT_PATH = path.join(process.cwd(), 'src/content/')
 
 export const getStaticProps = async ({ }) => {
-  const mdxPath = path.join(CONTENT_PATH, `whitepaper.mdx`)
+  const mdxPath = path.join(CONTENT_PATH, `proposal.md`)
   const postFilePath = fs.existsSync(mdxPath) ? mdxPath : mdxPath.slice(0, -1)
   const source = fs.readFileSync(postFilePath)
 
