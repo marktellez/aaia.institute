@@ -1,12 +1,12 @@
 const siteConfig = {
   title: 'Autonomous AI Multi-Agent Research',
-  tagline: 'Automating all the things for profit and fun!',
-  description: 'TellezTech Autonomous AI Multi-Agent Research - Automating all the things for profit and fun!',
+  tagline: 'Research into profit pipelines using autonomous ai agents in a multi-agent framework',
+  description: 'Autonomous Intelligence Research (and Development) - Research into profit pipelines using autonomous ai agents in a multi-agent framework',
   author: 'Mark Tellez',
   // logo image
   authorLogo: 'https://devmentor.live/headshot.png',
   // url to author
-  authorUrl: 'https://devmentor.live',
+  authorUrl: 'https://aaia.institute',
   // Google analytics key e.g. G-XXXX
   analytics: '',
   // optional additional nextSeo content set on each page
