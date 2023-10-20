@@ -1,4 +1,4 @@
-# A Blueprint for a New Economy: The Technological Foundations of Autonomous AI Agents [Research Grant Proposal]
+# Profit pipelines using autonomous ai agents in a multi-agent framework [Research Grant Proposal]
 
 ## Section 1: Introduction
 
