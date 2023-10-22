@@ -3,13 +3,14 @@ import path from 'path'
 
 import parse from '@/lib/mdx'
 import MdxPage from '@/components/MDX'
-import EmailSignup from '@/components/EmailSignup'
 
 
 export default function Page({ source, frontMatter, title }) {
   return (
     <div className='relative'>
-      <EmailSignup />
+      <div className='right-24 fixed bg-purple-500 hover:bg-purple-600 text-white rounded px-3 py-1'>
+        <a href="/funding">Join the profit sharing program!</a>
+      </div>
       <MdxPage source={source} frontMatter={frontMatter} />
     </div>
   )

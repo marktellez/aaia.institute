@@ -11,7 +11,7 @@ export default function MdxPage({ children, source, frontMatter }) {
     <article className="prose">
       <header>
         <div className="mb-6">
-          <h1>{frontMatter.title}</h1>
+          <h1 className='text-4xl font-bold mb-8 prose'>{frontMatter.title}</h1>
           {frontMatter.author && (
             <div className="-mt-6"><p className="opacity-60 pl-1">{frontMatter.author}</p></div>
           )}

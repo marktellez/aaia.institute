@@ -20,7 +20,7 @@ const Funding = () => {
 
   return (
     <div className="p-4 prose flex flex-col">
-      <h1 className="text-3xl font-bold">Research Funding</h1>
+      <h1 className="text-4xl font-bold mb-8 prose">Research Funding</h1>
 
       <div className="border-[1px] rounded bg-purple-50 p-4 prose">
         <div className="text-gray-600 font-medium">
@@ -56,16 +56,17 @@ const Funding = () => {
               className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg inline-block"
               target="_blank"
             >
-              Contribute now
+              Contribute now!
             </a>
+            <p className=" text-sm italic">Pick your amount of support - one-time donation.</p>
+
           </div>
         </div>
       </div>
 
       <div>
-        <p className="font-medium text-md">Pick your amount of support - one-time donation.</p>
         <p className="text-md">Contributions equals ownership! Earn a private token equal to the amount you contribute, and leverage that ownership in proposing and voting.</p>
-
+        <p className="text-sm italic">Have a say in how funding is spent, what avenues of profit we research, get early access to research, weekly updates, monthly reports and more as one of our Investors.</p>
       </div>
 
       <div className="flex flex-col gap-2">
