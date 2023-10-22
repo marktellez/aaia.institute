@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 
 import siteConfig from '@/config/siteConfig'
+import Header from '@/components/Header'
 
 export default function Layout({ children, title = '' }) {
   return (
@@ -15,21 +16,14 @@ export default function Layout({ children, title = '' }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
-      <main>
+      <Header />
+      <main className='container mx-auto my-16'>
         {children}
       </main>
-      <footer className="flex items-center justify-center w-full h-24 border-t mt-16">
-        <p className="flex items-center justify-center">
-          Created by
-          <a
-            href={siteConfig.authorUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={siteConfig.authorLogo} alt={siteConfig.author} className="ml-2 h-6 block" />
-          </a>
-        </p>
+      <footer className="flex items-center w-full  border-t border-gray-200 my-2 p-2">
+        <div className='prose'>
+          Autonomous Intelligence Research &copy; 2023
+        </div>
       </footer>
     </>
   )

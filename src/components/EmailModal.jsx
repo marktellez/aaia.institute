@@ -53,7 +53,7 @@ const EmailModal = ({ isOpen, onClose }) => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   onClick={handleEmailFieldClick}
-                  className="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-400 placeholder-gray-400"
+                  className="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-400 placeholder-gray-400"
                   placeholder="Your email"
                 />
               </div>

@@ -8,7 +8,7 @@ import EmailSignup from '@/components/EmailSignup'
 
 export default function Page({ source, frontMatter, title }) {
   return (
-    <div className='max-w-[640px] mx-auto relative'>
+    <div className='relative'>
       <EmailSignup />
       <MdxPage source={source} frontMatter={frontMatter} />
     </div>

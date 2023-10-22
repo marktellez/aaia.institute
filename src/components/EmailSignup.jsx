@@ -15,7 +15,7 @@ const EmailSignup = () => {
       {/* Your right container */}
       <div className="fixed sm:right-64 bottom-8 right-8 sm:top-1/2 transform -translate-y-1/2 ">
         {/* "Open Email Modal" button inside the right container */}
-        <div onClick={toggleModal} className='px-4 py-2 bg-blue-500 text-white rounded-full cursor-pointer'>
+        <div onClick={toggleModal} className='px-4 py-2 bg-purple-500 text-white rounded-full cursor-pointer'>
           Join the insiders!
         </div>
       </div>
