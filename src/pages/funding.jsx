@@ -106,6 +106,29 @@ const Funding = () => {
           ))}
         </ul>
       </div>
+
+      <h3>What does this funding go to?</h3>
+
+      <table className="w-full">
+        <thead>
+          <tr className="bg-purple-200">
+            <th className="text-left py-2 px-4">Item</th>
+            <th className="text-left py-2 px-4">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className={"bg-white"}>
+            <td className="py-2 px-4">Monthly stipend for Mark</td>
+            <td className="py-2 px-4">{formatCurrency(1700)}</td>
+          </tr>
+          {neededItems.map((item, index) => (
+            <tr key={index} className={index % 2 === 0 ? "bg-purple-100" : "bg-white"}>
+              <td className="py-2 px-4">{item.name}</td>
+              <td className="py-2 px-4">{formatCurrency(item.price)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
 
   );
