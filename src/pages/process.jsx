@@ -9,7 +9,11 @@ const Process = () => {
       <section className="mb-8">
         <h2 className="text-3xl font-semibold mb-4 prose">Background</h2>
         <p className="prose">
-          Provide background information about the research project, its objectives, and its significance.
+          In a technological epoch characterized by rapid advances in Artificial Intelligence (AI)
+          and the imminent advent of Artificial General Intelligence (AGI), this project aims to
+          identify and exploit "glitches in the matrix"—market inefficiencies or tasks that can be
+          automated and monetized. The project aims to make AI a competitor in the market, thereby
+          setting a new precedent for AI-driven economic activities.
         </p>
       </section>
 
@@ -17,7 +21,10 @@ const Process = () => {
       <section className="mb-8">
         <h2 className="text-3xl font-semibold mb-4 prose">Planning and Undertaking</h2>
         <p className="prose">
-          Describe the steps and methodologies that will be employed in planning and undertaking the research.
+          Our approach will involve the development of a comprehensive framework to facilitate
+          communication and long-term memory storage among AAIAs. Small autonomous teams of these
+          agents will be formed and improved through advanced algorithms, including genetic algorithms.
+          These teams will then identify, automate, and monetize market inefficiencies or tasks.
         </p>
       </section>
 
@@ -25,7 +32,8 @@ const Process = () => {
       <section className="mb-8">
         <h2 className="text-3xl font-semibold mb-4 prose">Weekly Updates</h2>
         <p className="prose">
-          Explain the methods that will be used for providing weekly updates on the research progress.
+          Weekly updates on the research progress will be uploaded to a secure website portal.
+          Access will be authenticated via ownership of our custom token in a Metamask wallet.
         </p>
       </section>
 
@@ -33,7 +41,9 @@ const Process = () => {
       <section className="mb-8">
         <h2 className="text-3xl font-semibold mb-4 prose">Monthly Reports</h2>
         <p className="prose">
-          Outline the procedures for generating and disseminating monthly reports on the research.
+          Monthly reports detailing the findings, revenue generation, and progress will also be
+          made available in the same secure website portal. The reports will be downloadable assets
+          within the portal.
         </p>
       </section>
 
