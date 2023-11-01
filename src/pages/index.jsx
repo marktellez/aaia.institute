@@ -7,7 +7,7 @@ import MdxPage from '@/components/MDX'
 
 export default function Page({ source, frontMatter, title }) {
   return (
-    <div className='relative'>
+    <div className='relative container mx-auto'>
       <div className='right-24 fixed bg-purple-500 hover:bg-purple-600 text-white rounded px-3 py-1'>
         <a href="/funding">Join the profit sharing program!</a>
       </div>

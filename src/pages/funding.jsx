@@ -1,10 +1,12 @@
 import React from "react";
+import { format } from "date-fns"
+
 
 const donors = [
-  { name: "Ryan Bent", amount: 1700 },
+  { name: "Ryan Bent", amount: 1600, gaveOn: "2023-10-03T06:00:00.000Z" },
 ];
 
-const goalAmount = 1700;
+const goalAmount = 2400;
 const currentAmount = donors.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
@@ -12,45 +14,58 @@ const neededItems = [
   { name: "OpenAI API costs", price: 100 },
 ];
 
+function formatCurrency(number) {
+  // Check if the input is a valid number
+  if (typeof number !== 'number') {
+    return 'Invalid input';
+  }
+
+  // Format the number as currency
+  const formattedCurrency = number.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  return formattedCurrency;
+}
+
 const Funding = () => {
-  const progress = (currentAmount / goalAmount) * 100;
+  const progress = (currentAmount / (goalAmount + neededItems.reduce((acc, item) => acc + item.price, 0))) * 100;
 
   return (
-    <div className="p-4  flex flex-col">
+    <div className="container mx-auto p-4 flex flex-col gap-4">
       <h1 className="text-4xl font-bold mb-8 prose">Research Funding</h1>
-
-      <div className="border-[1px] rounded bg-purple-50 p-4 prose">
+      <p className="text-sm font-thin">Contributions equals ownership! Earn a private token equal to the amount you contribute, and leverage that ownership in proposing and voting.</p>
+      <div className="border-[1px] rounded bg-purple-50 p-4 w-full">
         <div className="text-gray-600 font-medium">
-          Goal: ${goalAmount} USD
+          Goal: {formatCurrency(goalAmount)}
         </div>
 
-        <div className="relative pt-1">
-          <div className="flex mb-2 items-center justify-between">
-            <div>
-              <span className="text-xs font-semibold inline-block text-gray-600">
-                Goal Progress
-              </span>
-            </div>
-            <div className="text-right">
-              <span className="text-xs font-semibold inline-block text-purple-600">
-                {progress.toFixed(1)}%
-              </span>
-            </div>
+
+        <div className="flex mb-2 items-center justify-between">
+          <div>
+            <span className="text-xs font-semibold inline-block text-gray-600">
+              Goal Progress
+            </span>
           </div>
-          <div className="flex h-2 mb-4 overflow-hidden text-xs bg-purple-200">
-            <div
-              style={{ width: `${progress}%` }}
-              className="flex flex-col justify-center text-center text-white bg-purple-500 shadow-none"
-            ></div>
+          <div className="text-right">
+            <span className="text-xs font-semibold inline-block text-purple-600">
+              {progress.toFixed(1)}%
+            </span>
           </div>
         </div>
-
+        <div className="flex h-2 mb-4 overflow-hidden text-xs bg-purple-200">
+          <div
+            style={{ width: `${progress}%` }}
+            className="flex flex-col justify-center text-center text-white bg-purple-500 shadow-none"
+          ></div>
+        </div>
 
         <div className=" prose">
           <div className="">
             <a
               href="https://buy.stripe.com/9AQ9Cr55j4k07FS4gg"
-              className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg inline-block"
+              className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg inline-block no-underline"
               target="_blank"
             >
               Contribute now!
@@ -62,40 +77,36 @@ const Funding = () => {
       </div>
 
       <div>
-        <p className="text-md">Contributions equals ownership! Earn a private token equal to the amount you contribute, and leverage that ownership in proposing and voting.</p>
-        <p className="text-sm italic">Have a say in how funding is spent, what avenues of profit we research, get early access to research, weekly updates, monthly reports and more as one of our Investors.</p>
+        <p className="text-sm italic font-thin">Have a say in how funding is spent, what avenues of profit we research, get early access to research, weekly updates, monthly reports and more as one of our Investors.</p>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold prose">Needed Hardware and Software:</h2>
+
+      <div className="flex flex-col gap-2 border-[1px] border-purple-200 p-4">
+        <h2 className="text-md font-medium prose">Needed Hardware and Software:</h2>
         <ul className="list-disc pl-6 prose">
           {neededItems.map((item, index) => (
-            <li key={index} className="flex items-center justify-between">
+            <li key={index} className="flex items-center justify-between text-sm">
               <span>
-                {item.name}: ${item.price} MXN
+                {item.name}: {formatCurrency(item.price)}
               </span>
-              <a
-                href={`https://buy.stripe.com/9AQ9Cr55j4k07FS4gg`}
-                className="text-purple-500 border-purple-500 border-[1px] px-3 py-[1px] rounded-md inline-block ml-auto"
-              >
-                Contribute
-              </a>
+
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold prose">Donations this month so far:</h2>
+      <div className="flex flex-col gap-2 border-[1px] border-purple-200 p-4">
+        <h2 className="text-md font-medium prose">Donations this month so far:</h2>
         <ul className="list-disc pl-6 prose">
           {donors.map((donor, index) => (
-            <li key={index} className="flex items-center justify-between">
-              {donor.name} donated ${donor.amount} MXN
+            <li key={index} className="flex items-center justify-between text-sm">
+              {format(new Date(donor.gaveOn), "MMM do")} - {donor.name} donated {formatCurrency(donor.amount)}
             </li>
           ))}
         </ul>
       </div>
     </div>
+
   );
 };
 
