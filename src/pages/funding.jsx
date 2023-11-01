@@ -10,7 +10,8 @@ const goalAmount = 2400;
 const currentAmount = donors.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
-  { name: "AVAX to mint AIR & Governance contracts", price: 100 },
+  { name: "RTX 4080 GPU", price: 1200, url: "https://www.amazon.com/Gigabyte-Graphics-WINDFORCE-GV-N4080GAMING-OC-16GD/dp/B0BMN5J1XJ/ref=sr_1_1?keywords=NVIDIA%2BRTX%2B4080&qid=1698870812&sr=8-1&th=1" },
+  { name: "AVAX to mint AIR & Governance contracts", price: 50 },
   { name: "OpenAI API costs", price: 100 },
 ];
 
@@ -87,11 +88,11 @@ const Funding = () => {
           {neededItems.map((item, index) => (
             <li key={index} className="flex items-center justify-between text-sm">
               <span>
-                {item.name}: {formatCurrency(item.price)}
+                {item.name}: {formatCurrency(item.price)}{item.url && (<span> (<a target="_blank" href={item.url}>link</a>)</span>)}
               </span>
-
             </li>
           ))}
+
         </ul>
       </div>
 
