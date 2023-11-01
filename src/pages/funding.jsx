@@ -1,30 +1,27 @@
 import React from "react";
 
 const donors = [
-  { name: "Ryan Bent", amount: 3600 },
-  { name: "Chris Loggins", amount: 2250 },
-  { name: "Alex Tseitlin", amount: 1500 },
+  { name: "Ryan Bent", amount: 1700 },
 ];
 
-const goalAmount = 30000; // $30,000 MXN (set in JSON)
+const goalAmount = 1700;
 const currentAmount = donors.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
-  { name: "Descript Monthly Subscription", price: 500 },
-  { name: "Envato Elements Monthly Subscription", price: 325 },
-  { name: "OpenAI API costs", price: 5000 },
+  { name: "AVAX to mint AIR & Governance contracts", price: 100 },
+  { name: "OpenAI API costs", price: 100 },
 ];
 
 const Funding = () => {
   const progress = (currentAmount / goalAmount) * 100;
 
   return (
-    <div className="p-4 prose flex flex-col">
+    <div className="p-4  flex flex-col">
       <h1 className="text-4xl font-bold mb-8 prose">Research Funding</h1>
 
       <div className="border-[1px] rounded bg-purple-50 p-4 prose">
         <div className="text-gray-600 font-medium">
-          Goal: ${goalAmount} MXN
+          Goal: ${goalAmount} USD
         </div>
 
         <div className="relative pt-1">

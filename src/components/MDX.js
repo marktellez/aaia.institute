@@ -8,7 +8,7 @@ const components = {
 
 export default function MdxPage({ children, source, frontMatter }) {
   return (
-    <article className="prose">
+    <article >
       <header>
         <div className="mb-6">
           <h1 className='text-4xl font-bold mb-8 prose'>{frontMatter.title}</h1>
