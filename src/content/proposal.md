@@ -141,42 +141,7 @@ Investors and stakeholders holding our custom token will benefit from the revenu
 
 Lastly, the project aims to contribute significantly to the field of AI, particularly in the development and deployment of AAIAs, setting new industry standards and encouraging ethical, sustainable AI practices.
 
-## 6. Timeline and Milestones
+## References
 
-A detailed timeline of the research project with key milestones and deadlines.
-
-## 7. Budget and Justification
-
-An outline of the projected budget, including resources, personnel, and any other expenses, along with a justification for each cost item.
-
-## 8. Risk Assessment and Mitigation Strategies
-
-An analysis of potential risks that could impact the research and strategies to mitigate these risks.
-
-## 9. Ethical Considerations
-
-A discussion on the ethical implications of the research, particularly how the research aligns with ethical AI development principles.
-
-## 10. Dissemination Plan
-
-How the findings of the research will be shared with the broader community, including publications, presentations, and potential collaborations.
-
-## 11. Conclusion
-
-A summary that reinforces the significance of the research, its potential impact, and the value it will bring to the field of AI and the market.
-
-## 12. Appendices
-
-Any supplementary material that supports the proposal, such as letters of support, detailed tables, or technical diagrams.
-
-## 13. Acknowledgments
-
-Recognizing individuals, organizations, or funding bodies that have contributed to the development of the research proposal.
-
-## 14. References
-
-A comprehensive list of all references cited throughout the proposal.
-
-## 15. Contact Information
-
-Details on how to get in touch with the research team for further information or discussions.
+- [Arxiv - AutoGen Paper](https://arxiv.org/abs/2308.08155)
+- [ChatDev Project and Paper](https://arxiv.org/abs/2307.07924)

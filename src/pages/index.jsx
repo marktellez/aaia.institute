@@ -5,14 +5,21 @@ import parse from '@/lib/mdx'
 import MdxPage from '@/components/MDX'
 
 
-export default function Page({ source, frontMatter, title }) {
+export default function Page({ source, frontMatter }) {
   return (
-    <div className='relative container mx-auto'>
-      <div className='right-24 fixed bg-purple-500 hover:bg-purple-600 text-white rounded px-3 py-1'>
-        <a href="/funding">Join the profit sharing program!</a>
+    <>
+      <div className='w-full bg-purple-500 hover:bg-purple-600 text-white py-4 -mt-16'>
+        <div className=" container mx-auto flex items-center gap-2 ">
+          Support our research, earn profit sharing! <a href="/funding" className="drop-shadow rounded-md py-1 px-4 bg-white text-purple-500 hover:text-purple-700 text-sm">click here</a>
+
+        </div>
       </div>
-      <MdxPage source={source} frontMatter={frontMatter} />
-    </div>
+
+      <div className="container mx-auto">
+        <MdxPage source={source} frontMatter={frontMatter} />
+      </div>
+
+    </>
   )
 }
 

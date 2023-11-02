@@ -2,17 +2,18 @@ import React from "react";
 import { format } from "date-fns"
 
 
-const donors = [
-  { name: "Ryan Bent", amount: 1600, gaveOn: "2023-10-03T06:00:00.000Z" },
+const donations = [
+  { name: "Ryan Bent", amount: 50, date: "2023-11-02T06:00:00.000Z", reason: "OpenAI API usage" },
+  { name: "Ryan Bent", amount: 1600, date: "2023-11-03T06:00:00.000Z", reason: "Research costs" },
 ];
 
-const goalAmount = 2400;
-const currentAmount = donors.reduce((total, donor) => total + donor.amount, 0);
+const goalAmount = 1700; // Marks stipend
+const currentAmount = donations.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
   { name: "RTX 4080 GPU", price: 1200, url: "https://www.amazon.com/Gigabyte-Graphics-WINDFORCE-GV-N4080GAMING-OC-16GD/dp/B0BMN5J1XJ/ref=sr_1_1?keywords=NVIDIA%2BRTX%2B4080&qid=1698870812&sr=8-1&th=1" },
   { name: "AVAX to mint AIR & Governance contracts", price: 50 },
-  { name: "OpenAI API costs", price: 100 },
+  { name: "OpenAI API costs", price: 50 },
 ];
 
 function formatCurrency(number) {
@@ -88,7 +89,7 @@ const Funding = () => {
           {neededItems.map((item, index) => (
             <li key={index} className="flex items-center justify-between text-sm">
               <span>
-                {item.name}: {formatCurrency(item.price)}{item.url && (<span> (<a target="_blank" href={item.url}>link</a>)</span>)}
+                {item.name}: {formatCurrency(item.price)} {item.url && (<span> (<a target="_blank" href={item.url}>link</a>)</span>)}
               </span>
             </li>
           ))}
@@ -99,9 +100,9 @@ const Funding = () => {
       <div className="flex flex-col gap-2 border-[1px] border-purple-200 p-4">
         <h2 className="text-md font-medium prose">Donations this month so far:</h2>
         <ul className="list-disc pl-6 prose">
-          {donors.map((donor, index) => (
+          {donations.map(({ date, name, amount, reason }, index) => (
             <li key={index} className="flex items-center justify-between text-sm">
-              {format(new Date(donor.gaveOn), "MMM do")} - {donor.name} donated {formatCurrency(donor.amount)}
+              On the {format(new Date(date), "do' of 'MMMM")}, {name} donated {formatCurrency(amount)} for {reason}
             </li>
           ))}
         </ul>
