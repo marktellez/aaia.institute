@@ -6,7 +6,7 @@ const donations = [
   { name: "Ryan Bent", amount: 50, date: "2023-11-02T06:00:00.000Z", reason: "OpenAI API usage" },
 ];
 
-const goalAmount = 1700; // Marks stipend
+const goalAmount = 1500; // Marks stipend
 const currentAmount = donations.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
