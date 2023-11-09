@@ -120,7 +120,7 @@ const Funding = () => {
         <tbody>
           <tr className={"bg-white"}>
             <td className="py-2 px-4">Monthly stipend for Mark</td>
-            <td className="py-2 px-4">{formatCurrency(1700)}</td>
+            <td className="py-2 px-4">{formatCurrency(goalAmount)}</td>
           </tr>
           {neededItems.map((item, index) => (
             <tr key={index} className={index % 2 === 0 ? "bg-purple-100" : "bg-white"}>
