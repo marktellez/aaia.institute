@@ -7,7 +7,7 @@ const donations = [
   { name: "Chris Loggins", amount: 200, date: "2023-11-13T06:00:00.000Z", reason: "General support" },
 ];
 
-const goalAmount = 1500; // Marks stipend
+const stipendAmount = 1500;
 const currentAmount = donations.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
@@ -32,8 +32,10 @@ function formatCurrency(number) {
   return formattedCurrency;
 }
 
+const monthlyTotalGoal = (stipendAmount + neededItems.reduce((acc, item) => acc + item.price, 0))
+
 const Funding = () => {
-  const progress = (currentAmount / (goalAmount + neededItems.reduce((acc, item) => acc + item.price, 0))) * 100;
+  const progress = (currentAmount / monthlyTotalGoal) * 100;
 
   return (
     <div className="container mx-auto p-4 flex flex-col gap-4">
@@ -41,7 +43,7 @@ const Funding = () => {
       <p className="text-sm font-thin">Contributions equals ownership! Earn a private token equal to the amount you contribute, and leverage that ownership in proposing and voting.</p>
       <div className="border-[1px] rounded bg-purple-50 p-4 w-full">
         <div className="text-gray-600 font-medium">
-          Goal: {formatCurrency(goalAmount)}
+          Goal: {formatCurrency(monthlyTotalGoal)}
         </div>
 
 
@@ -123,7 +125,7 @@ const Funding = () => {
         <tbody>
           <tr className={"bg-white"}>
             <td className="py-2 px-4">Monthly stipend for Mark</td>
-            <td className="py-2 px-4">{formatCurrency(goalAmount)}</td>
+            <td className="py-2 px-4">{formatCurrency(stipendAmount)}</td>
           </tr>
           {neededItems.map((item, index) => (
             <tr key={index} className={index % 2 === 0 ? "bg-purple-100" : "bg-white"}>
