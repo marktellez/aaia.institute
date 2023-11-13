@@ -4,6 +4,7 @@ import { format } from "date-fns"
 
 const donations = [
   { name: "Ryan Bent", amount: 50, date: "2023-11-02T06:00:00.000Z", reason: "OpenAI API usage" },
+  { name: "Chris Loggins", amount: 200, date: "2023-11-13T06:00:00.000Z", reason: "General support" },
 ];
 
 const goalAmount = 1500; // Marks stipend
