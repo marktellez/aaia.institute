@@ -107,6 +107,8 @@ const Funding = () => {
             </li>
           ))}
         </ul>
+
+        <p>This research and my ability to do it wihout starving is only made possible from support from amazing people like YOU! My deepest thanks and prayers go to this people on this list!</p>
       </div>
 
       <h3>What does this funding go to?</h3>
