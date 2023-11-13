@@ -11,8 +11,8 @@ const stipendAmount = 1500;
 const currentAmount = donations.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
-  { name: "RTX 4080 GPU", price: 1200, url: "https://www.amazon.com/Gigabyte-Graphics-WINDFORCE-GV-N4080GAMING-OC-16GD/dp/B0BMN5J1XJ/ref=sr_1_1?keywords=NVIDIA%2BRTX%2B4080&qid=1698870812&sr=8-1&th=1" },
   { name: "1TB Internal SSD HD", price: 50, url: "https://www.amazon.com/RAOYI-Internal-Advanced-Upgrade-Performance/dp/B0C3CTZ3ZB/ref=sr_1_5?crid=2NXBKTRKS64X9&keywords=ssd+hard+drive+internal+pc&qid=1699461490&sprefix=ssd+hard+drive+inernal+%2Caps%2C153&sr=8-5" },
+  { name: "RTX 4080 GPU", price: 1200, url: "https://www.amazon.com/Gigabyte-Graphics-WINDFORCE-GV-N4080GAMING-OC-16GD/dp/B0BMN5J1XJ/ref=sr_1_1?keywords=NVIDIA%2BRTX%2B4080&qid=1698870812&sr=8-1&th=1" },
   { name: "AVAX to mint AIR & Governance contracts", price: 50 },
   { name: "OpenAI API costs", price: 50 },
 ];
@@ -32,7 +32,7 @@ function formatCurrency(number) {
   return formattedCurrency;
 }
 
-const monthlyTotalGoal = (stipendAmount + neededItems.reduce((acc, item) => acc + item.price, 0))
+const monthlyTotalGoal = (stipendAmount + neededItems[0].price) // each month we want at least one new needed item
 
 const Funding = () => {
   const progress = (currentAmount / monthlyTotalGoal) * 100;
