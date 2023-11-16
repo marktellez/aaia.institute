@@ -3,18 +3,21 @@ import { format } from "date-fns"
 
 
 const donations = [
+  { name: "Ryan Bent", amount: 300, date: "2023-11-17T06:00:00.000Z", reason: "General support" },
   { name: "Ryan Bent", amount: 50, date: "2023-11-02T06:00:00.000Z", reason: "OpenAI API usage" },
   { name: "Chris Loggins", amount: 200, date: "2023-11-13T06:00:00.000Z", reason: "General support" },
+  { name: "Mark Tellez", amount: 300, date: "2023-11-16T06:00:00.000Z", reason: "UPS, SSD" },
 ];
 
 const stipendAmount = 1500;
 const currentAmount = donations.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
-  { name: "1TB Internal SSD HD", price: 50, url: "https://www.amazon.com/RAOYI-Internal-Advanced-Upgrade-Performance/dp/B0C3CTZ3ZB/ref=sr_1_5?crid=2NXBKTRKS64X9&keywords=ssd+hard+drive+internal+pc&qid=1699461490&sprefix=ssd+hard+drive+inernal+%2Caps%2C153&sr=8-5" },
+  { received: "2023-11-16T06:00:00.000Z", donor: "Mark Tellez", name: "1TB Internal SSD HD", price: 100, url: "https://www.amazon.com/RAOYI-Internal-Advanced-Upgrade-Performance/dp/B0C3CTZ3ZB/ref=sr_1_5?crid=2NXBKTRKS64X9&keywords=ssd+hard+drive+internal+pc&qid=1699461490&sprefix=ssd+hard+drive+inernal+%2Caps%2C153&sr=8-5" },
+  { received: "2023-11-16T06:00:00.000Z", donor: "Mark Tellez", name: "1000w UPS - 1 hour", price: 200, url: "https://www.amazon.com/RAOYI-Internal-Advanced-Upgrade-Performance/dp/B0C3CTZ3ZB/ref=sr_1_5?crid=2NXBKTRKS64X9&keywords=ssd+hard+drive+internal+pc&qid=1699461490&sprefix=ssd+hard+drive+inernal+%2Caps%2C153&sr=8-5" },
   { name: "RTX 4080 GPU", price: 1200, url: "https://www.amazon.com/Gigabyte-Graphics-WINDFORCE-GV-N4080GAMING-OC-16GD/dp/B0BMN5J1XJ/ref=sr_1_1?keywords=NVIDIA%2BRTX%2B4080&qid=1698870812&sr=8-1&th=1" },
   { name: "AVAX to mint AIR & Governance contracts", price: 50 },
-  { name: "OpenAI API costs", price: 50 },
+  { received: "2023-11-13T06:00:00.000Z", donor: "Ryan Bent", name: "OpenAI API costs", price: 50 },
 ];
 
 function formatCurrency(number) {
@@ -36,6 +39,17 @@ const monthlyTotalGoal = (stipendAmount + neededItems[0].price) // each month we
 
 const Funding = () => {
   const progress = (currentAmount / monthlyTotalGoal) * 100;
+
+  const sortedByDate = (array, attr) => array.sort((a, b) => {
+    if (a[attr] && b[attr]) {
+      return new Date(b[attr]) - new Date(a[attr]);
+    } else if (a[attr]) {
+      return 1;
+    } else if (b[attr]) {
+      return -1;
+    }
+    return 0;
+  });
 
   return (
     <div className="container mx-auto p-4 flex flex-col gap-4">
@@ -82,38 +96,44 @@ const Funding = () => {
       </div>
 
       <div>
-        <p className="text-sm italic font-thin">Have a say in how funding is spent, what avenues of profit we research, get early access to research, weekly updates, monthly reports and more as one of our Investors.</p>
+        <p className="text-sm italic font-thin">Donors have a say in how funding is spent, what avenues of profit we research, get early access to research, weekly updates, monthly reports and more as one of our Investors.</p>
       </div>
 
 
       <div className="flex flex-col gap-2 border-[1px] border-purple-200 p-4">
         <h2 className="text-md font-medium prose">Needed Hardware and Software:</h2>
         <ul className="list-disc pl-6 prose">
-          {neededItems.map((item, index) => (
+          {sortedByDate(neededItems, "received").map((item, index) => (
             <li key={index} className="flex items-center justify-between text-sm">
               <span>
-                {item.name}: {formatCurrency(item.price)} {item.url && (<span> (<a target="_blank" href={item.url}>link</a>)</span>)}
+                {item.name}: {formatCurrency(item.price)}
+                {item.url && (<span> (<a target="_blank" href={item.url}>link</a>)</span>)}
+                {item.received && (
+                  <span className="ml-2 italic">- Received on {format(new Date(item.received), "do' of 'MMMM yyyy")} from {item.donor}</span>
+                )}
               </span>
             </li>
           ))}
-
         </ul>
       </div>
 
       <div className="flex flex-col gap-2 border-[1px] border-purple-200 p-4">
         <h2 className="text-md font-medium prose">Donations this month so far:</h2>
         <ul className="list-disc pl-6 prose">
-          {donations.map(({ date, name, amount, reason }, index) => (
+          {sortedByDate(donations, "date").map(({ date, name, amount, reason }, index) => (
             <li key={index} className="flex items-center justify-between text-sm">
               On the {format(new Date(date), "do' of 'MMMM")}, {name} donated {formatCurrency(amount)} for {reason}
             </li>
           ))}
         </ul>
 
-        <p>This research and my ability to do it wihout starving is only made possible from support from amazing people like YOU! My deepest thanks and prayers go to this people on this list!</p>
       </div>
 
-      <h3>What does this funding go to?</h3>
+      <p>This research and my ability to do it wihout starving is only made possible from support from amazing people like YOU! My deepest thanks and prayers go to this people on this list!</p>
+
+      <hr />
+
+      <h3 className="font-medium">What does this funding go to?</h3>
 
       <table className="w-full">
         <thead>
@@ -124,7 +144,7 @@ const Funding = () => {
         </thead>
         <tbody>
           <tr className={"bg-white"}>
-            <td className="py-2 px-4">Monthly stipend for Mark</td>
+            <td className="py-2 px-4">Monthly stipend for full time researcher</td>
             <td className="py-2 px-4">{formatCurrency(stipendAmount)}</td>
           </tr>
           {neededItems.map((item, index) => (
