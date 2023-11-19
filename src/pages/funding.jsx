@@ -13,6 +13,8 @@ const stipendAmount = 1500;
 const currentAmount = donations.reduce((total, donor) => total + donor.amount, 0);
 
 const neededItems = [
+  { name: "64GB (2x32GB) DDR4 3600  (2)", price: 400, url: "https://www.amazon.com.mx/gp/product/B081BTFN1B/ref=ewc_pr_img_1?smid=A2176XZ8V87WGL&psc=1" },
+  { name: "ATX Motherboard with PCIe 4.0, Dual M.2, 128GB max RAM", price: 400, url: "https://www.amazon.com.mx/gp/product/B07SXF8GY3/ref=ewc_pr_img_2?smid=AVDBXBAVVSXLQ&psc=1" },
   { received: "2023-11-16T06:00:00.000Z", donor: "Mark Tellez", name: "1TB Internal SSD HD", price: 100, url: "https://www.amazon.com/RAOYI-Internal-Advanced-Upgrade-Performance/dp/B0C3CTZ3ZB/ref=sr_1_5?crid=2NXBKTRKS64X9&keywords=ssd+hard+drive+internal+pc&qid=1699461490&sprefix=ssd+hard+drive+inernal+%2Caps%2C153&sr=8-5" },
   { received: "2023-11-16T06:00:00.000Z", donor: "Mark Tellez", name: "1000w UPS - 1 hour", price: 200, url: "https://www.amazon.com/RAOYI-Internal-Advanced-Upgrade-Performance/dp/B0C3CTZ3ZB/ref=sr_1_5?crid=2NXBKTRKS64X9&keywords=ssd+hard+drive+internal+pc&qid=1699461490&sprefix=ssd+hard+drive+inernal+%2Caps%2C153&sr=8-5" },
   { name: "RTX 4080 GPU", price: 1200, url: "https://www.amazon.com/Gigabyte-Graphics-WINDFORCE-GV-N4080GAMING-OC-16GD/dp/B0BMN5J1XJ/ref=sr_1_1?keywords=NVIDIA%2BRTX%2B4080&qid=1698870812&sr=8-1&th=1" },
@@ -104,7 +106,7 @@ const Funding = () => {
         <h2 className="text-md font-medium prose">Needed Hardware and Software:</h2>
         <ul className="list-disc pl-6 prose">
           {sortedByDate(neededItems, "received").map((item, index) => (
-            <li key={index} className="flex items-center justify-between text-sm">
+            <li key={index} className={`"flex items-center justify-between text-sm w-full ${index === neededItems.indexOf(sortedByDate(neededItems, "received").filter(item => item.received)[0]) ? "border-t border-purple-300 " : ""}`}>
               <span>
                 {item.name}: {formatCurrency(item.price)}
                 {item.url && (<span> (<a target="_blank" href={item.url}>link</a>)</span>)}
